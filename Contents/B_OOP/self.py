@@ -22,6 +22,9 @@ class Test:
     def info(self):
         print(self)
         
-x=Test()
-print(x)
-x.info()
+# x=Test() 
+# print(x) #gonna output the address
+# x.info() #it's just print the self , then self = object
+
+
+
