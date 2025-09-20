@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 # ======== Load and prepare the data ========
-data = pd.read_csv(r'Contents/ML/Session3/Assignments/Salary_Data.csv')
+data = pd.read_csv(r'C:\Users\habib\OneDrive\المستندات\Depi_workingSpace\Depi_workigSpace\Contents\ML\Session3\Assignments\GUI\Salary_Data.csv')
 
 x = data.iloc[:, :-1]   
 y = data.iloc[:, 1]     
