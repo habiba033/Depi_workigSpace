@@ -1,0 +1,27 @@
+### What does stratify do?
+When you split your dataset into train and test, sometimes one class is much less frequent than the others (class imbalance).
+=> If you use (stratify=y), the split will preserve the same class distribution in both train and test sets.
+
+
+* Example:
+Suppose you have a dataset with:
+Class A = 80 samples
+Class B = 20 samples
+
+If you do a normal train_test_split (without stratify), you might end up with:
+Train → A = 75, B = 5
+Test → A = 5, B = 15
+-> This is unbalanced and not representative.
+
+If you do:
+train_test_split(X, y, test_size=0.2, stratify=y)
+
+Then both train and test will keep the 80:20 ratio:
+Train → A = 64, B = 16
+Test → A = 16, B = 4
+
+
+=> Why is this important?
+
+1. Prevents bias in training/testing.
+2. Ensures test results are meaningful, especially in classification problems with imbalanced data.
