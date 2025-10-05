@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main</class>
+ <widget class="QWidget" name="main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>983</width>
+    <height>725</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>main</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background: #333333;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #44bd32;
+    font-size: 15pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+</string>
+  </property>
+  <widget class="QTabWidget" name="tapWidget">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>130</y>
+     <width>631</width>
+     <height>561</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+QPushButton:pressed, QPushButton:checked {
+    background-color: #44bd32; /* green when clicked */
+    color: white;}
+/* Sidebar */
+QListWidget {
+	background-color: rgb(84, 69, 68);
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background: #333333;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 15pt;
+    padding: 18px 32px;
+    margin: 8px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #ffffff;
+    font-size: 11pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 13pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+/* ---------------- Buttons ---------------- */
+QPushButton:pressed, QPushButton:checked {
+    background-color: #44bd32; /* green when clicked */
+    color: white;
+}
+
+/* ---------------- LineEdits ---------------- */
+QLineEdit:focus {
+    border: 2px solid #44bd32; /* green border when focused */
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* ---------------- QListWidget Items ---------------- */
+QListWidget::item:selected {
+    background-color: #44bd32; /* green when selected */
+    color: white;
+}
+
+/* ---------------- QTabBar Tabs ---------------- */
+QTabBar::tab:selected {
+    background-color: #44bd32; /* green for selected tab */
+    color: white;
+    font-weight: bold;
+}
+</string>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <widget class="QWidget" name="students_tap">
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
+    </property>
+    <attribute name="title">
+     <string>   Users   </string>
+    </attribute>
+    <widget class="QPushButton" name="addUserButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>70</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton:pressed, QPushButton:checked {
+    background-color: #44bd32; /* green when clicked */
+    color: white;}</string>
+     </property>
+     <property name="text">
+      <string> Add User</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="deleteButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>170</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete User</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewUsersButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>270</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>View Users</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="enrollment_tap">
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
+    </property>
+    <attribute name="title">
+     <string>   Stations   </string>
+    </attribute>
+    <widget class="QPushButton" name="addStationButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>70</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string> Add Station</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SdeleteButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>170</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete Station</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewStationsButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>270</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Search Station</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="courses_tap">
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
+    </property>
+    <attribute name="title">
+     <string>  Trips  </string>
+    </attribute>
+    <widget class="QPushButton" name="addTripButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>70</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Trip</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="TdeleteButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>170</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete Trip</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewTripsByUserButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>270</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>View Trip By User</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewTripsByStationButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>370</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>View Trip By Station</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>291</width>
+     <height>551</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMainWindow {
+    background-color: #000000; /* Main background black */
+}
+
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+    padding: 8px; /* padding inside the widget */
+}
+
+QListWidget::item {
+    padding: 13px;          /* space inside each item */
+    margin: 10px 0;          /* space between items */
+    border-radius: 8px;     /* rounded look */
+    background: #2b2b2b;    /* item background */
+}
+
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+    font-weight: bold;
+
+
+}
+
+QListWidget::item:hover {
+    background-color: #44bd32; /* green when selected */
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 6px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #ffffff;
+    font-size: 11pt;
+}
+
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* ComboBox */
+QComboBox {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;
+    selection-background-color: #44bd32;
+    color: white;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background:  #44bd32;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #ffffff;
+    font-size: 11pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+
+/* ---------------- QListWidget Items ---------------- */
+QListWidget::item:selected {
+    background-color: #44bd32; /* green when selected */
+    color: white;
+}
+
+
+</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Users</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="textAlignment">
+     <set>AlignJustify|AlignVCenter</set>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Stations</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Trips</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>0</y>
+     <width>581</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background: #333333;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+	color: rgb(26, 175, 0);
+    font-size: 11pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+QLabel{
+    font-size: 35px;
+    font-weight: bold;
+	color: rgb(13, 13, 13);
+    qproperty-alignment: 'AlignCenter'; /* Forces center alignment */
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; color:#44bd32;&quot;&gt;Smart User Tracker&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>tapWidget</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>listWidget</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>288</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>180</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>tapWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>143</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>tapWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot1()</slot>
+ </slots>
+</ui>

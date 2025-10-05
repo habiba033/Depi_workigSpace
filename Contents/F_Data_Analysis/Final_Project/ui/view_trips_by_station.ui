@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>789</width>
+    <height>641</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background: #333333;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #ffffff;
+    font-size: 11pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+</string>
+  </property>
+  <widget class="QLineEdit" name="searchInput">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>20</y>
+     <width>601</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tripsTable">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>761</width>
+     <height>531</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background: #333333;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #ffffff;
+    font-size: 11pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

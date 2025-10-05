@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>widget</class>
+ <widget class="QWidget" name="widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>645</width>
+    <height>382</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::WheelFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>addUsers</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+QPushButton:pressed, QPushButton:checked {
+    background-color: #44bd32; /* green when clicked */
+    color: white;}
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background: #333333;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #ffffff;
+    font-size: 11pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+/* ---------------- Buttons ---------------- */
+QPushButton:pressed, QPushButton:checked {
+    background-color: #44bd32; /* green when clicked */
+    color: white;
+}
+
+/* ---------------- LineEdits ---------------- */
+QLineEdit:focus {
+    border: 2px solid #44bd32; /* green border when focused */
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* ---------------- QListWidget Items ---------------- */
+QListWidget::item:selected {
+    background-color: #44bd32; /* green when selected */
+    color: white;
+}
+
+/* ---------------- QTabBar Tabs ---------------- */
+QTabBar::tab:selected {
+    background-color: #44bd32; /* green for selected tab */
+    color: white;
+    font-weight: bold;
+}
+</string>
+  </property>
+  <widget class="QPushButton" name="addUserButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>70</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string> Add User</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>210</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="birthYearInput">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Student ID</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ageInput">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Student ID</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="genderCombo">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>200</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::WheelFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ComboBox */
+QComboBox {
+    font-size: 11pt;
+    padding: 6px 8px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* لما يبقى الفوكس على الكومبو */
+QComboBox:focus {
+    border: 2px solid #44bd32;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+/* سهم النزول */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 28px;
+    border-left: 1px solid #444444;
+    background: transparent;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* شكل السهم الافتراضي */
+QComboBox::down-arrow {
+    image: none;   /* استخدم السهم الافتراضي للنظام */
+    width: 10px;
+    height: 10px;
+}
+
+/* اللستة اللي بتنزل */
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    selection-background-color: #44bd32;
+    selection-color: white;
+    color: #ffffff;
+}
+</string>
+   </property>
+   <property name="currentText">
+    <string>Gender</string>
+   </property>
+   <property name="maxVisibleItems">
+    <number>23</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>Gender</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Male </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="userTypeCombo">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>290</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::WheelFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ComboBox */
+QComboBox {
+    font-size: 11pt;
+    padding: 6px 8px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* لما يبقى الفوكس على الكومبو */
+QComboBox:focus {
+    border: 2px solid #44bd32;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+/* سهم النزول */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 28px;
+    border-left: 1px solid #444444;
+    background: transparent;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* شكل السهم الافتراضي */
+QComboBox::down-arrow {
+    image: none;   /* استخدم السهم الافتراضي للنظام */
+    width: 10px;
+    height: 10px;
+}
+
+/* اللستة اللي بتنزل */
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    selection-background-color: #44bd32;
+    selection-color: white;
+    color: #ffffff;
+}
+</string>
+   </property>
+   <property name="currentText">
+    <string>User Type</string>
+   </property>
+   <property name="maxVisibleItems">
+    <number>23</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>User Type</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Subscriber</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Customer</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

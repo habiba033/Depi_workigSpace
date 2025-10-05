@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>648</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #000000; /* الخلفية الرئيسية سوداء */
+}
+QPushButton:pressed, QPushButton:checked {
+    background-color: #44bd32; /* green when clicked */
+    color: white;}
+/* Sidebar */
+QListWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 12pt;
+}
+QListWidget::item:selected {
+    background: #00a8ff;
+    color: white;
+}
+QListWidget::item:hover {
+    background: #333333;
+}
+
+/* Tabs */
+QTabBar::tab {
+    font-size: 12pt;
+    padding: 8px 20px;
+    margin: 4px;
+    border-radius: 12px;
+    background: #1e1e1e;
+    color: #bbbbbb;
+}
+QTabBar::tab:selected {
+    background: #44bd32;
+    color: white;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #4cd137;
+    color: white;
+}
+
+/* Forms (LineEdits, Labels) */
+QLabel {
+    color: #ffffff;
+    font-size: 11pt;
+}
+QLineEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+}
+QLineEdit:focus {
+    border: 2px solid #44bd32;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+QPushButton#add {
+    background-color: #44bd32;
+}
+QPushButton#add:hover {
+    background-color: #4cd137;
+}
+QPushButton#update {
+    background-color: #0097e6;
+}
+QPushButton#update:hover {
+    background-color: #00a8ff;
+}
+QPushButton#delete {
+    background-color: #e84118;
+}
+QPushButton#delete:hover {
+    background-color: #c23616;
+}
+/* ---------------- Buttons ---------------- */
+QPushButton:pressed, QPushButton:checked {
+    background-color: #44bd32; /* green when clicked */
+    color: white;
+}
+
+/* ---------------- LineEdits ---------------- */
+QLineEdit:focus {
+    border: 2px solid #44bd32; /* green border when focused */
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* ---------------- QListWidget Items ---------------- */
+QListWidget::item:selected {
+    background-color: #44bd32; /* green when selected */
+    color: white;
+}
+
+/* ---------------- QTabBar Tabs ---------------- */
+QTabBar::tab:selected {
+    background-color: #44bd32; /* green for selected tab */
+    color: white;
+    font-weight: bold;
+}
+/* ---------------- Date/Time Edits ---------------- */
+QDateEdit, QDateTimeEdit, QTimeEdit {
+    font-size: 11pt;
+    padding: 6px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #ffffff;
+    min-width: 120px;
+}
+
+/* Focus effect */
+QDateEdit:focus, QDateTimeEdit:focus, QTimeEdit:focus {
+    border: 2px solid #44bd32; /* green border */
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Drop-down calendar (for QDateEdit / QDateTimeEdit) */
+QCalendarWidget QWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+QCalendarWidget QToolButton {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    padding: 4px;
+}
+
+QCalendarWidget QToolButton:hover {
+    background-color: #44bd32;
+    color: white;
+}
+
+QCalendarWidget QAbstractItemView {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    selection-background-color: #44bd32;
+    selection-color: white;
+}
+
+</string>
+  </property>
+  <widget class="QComboBox" name="userCombo">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::WheelFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ComboBox */
+QComboBox {
+    font-size: 11pt;
+    padding: 6px 8px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* لما يبقى الفوكس على الكومبو */
+QComboBox:focus {
+    border: 2px solid #44bd32;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+/* سهم النزول */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 28px;
+    border-left: 1px solid #444444;
+    background: transparent;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* شكل السهم الافتراضي */
+QComboBox::down-arrow {
+    image: none;   /* استخدم السهم الافتراضي للنظام */
+    width: 10px;
+    height: 10px;
+}
+
+/* اللستة اللي بتنزل */
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    selection-background-color: #44bd32;
+    selection-color: white;
+    color: #ffffff;
+}
+</string>
+   </property>
+   <property name="currentText">
+    <string>User</string>
+   </property>
+   <property name="maxVisibleItems">
+    <number>23</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>User</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Male </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="startStationCombo">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>110</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::WheelFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ComboBox */
+QComboBox {
+    font-size: 11pt;
+    padding: 6px 8px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* لما يبقى الفوكس على الكومبو */
+QComboBox:focus {
+    border: 2px solid #44bd32;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+/* سهم النزول */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 28px;
+    border-left: 1px solid #444444;
+    background: transparent;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* شكل السهم الافتراضي */
+QComboBox::down-arrow {
+    image: none;   /* استخدم السهم الافتراضي للنظام */
+    width: 10px;
+    height: 10px;
+}
+
+/* اللستة اللي بتنزل */
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    selection-background-color: #44bd32;
+    selection-color: white;
+    color: #ffffff;
+}
+</string>
+   </property>
+   <property name="currentText">
+    <string>Start Station</string>
+   </property>
+   <property name="maxVisibleItems">
+    <number>23</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>Start Station</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Male </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="endStationCombo">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>200</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::WheelFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ComboBox */
+QComboBox {
+    font-size: 11pt;
+    padding: 6px 8px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* لما يبقى الفوكس على الكومبو */
+QComboBox:focus {
+    border: 2px solid #44bd32;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+/* سهم النزول */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 28px;
+    border-left: 1px solid #444444;
+    background: transparent;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* شكل السهم الافتراضي */
+QComboBox::down-arrow {
+    image: none;   /* استخدم السهم الافتراضي للنظام */
+    width: 10px;
+    height: 10px;
+}
+
+/* اللستة اللي بتنزل */
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    selection-background-color: #44bd32;
+    selection-color: white;
+    color: #ffffff;
+}
+</string>
+   </property>
+   <property name="currentText">
+    <string>End Station</string>
+   </property>
+   <property name="maxVisibleItems">
+    <number>23</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>End Station</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Male </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QDateTimeEdit" name="startTimeEdit">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>290</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDateTimeEdit" name="endTimeEdit">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>370</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="saveButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>130</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>280</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

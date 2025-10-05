@@ -1,0 +1,22 @@
+#### Why we fit only on train data?
+
+-> fit = calculate statistics (mean, std for StandardScaler).
+-> transform = apply the formula using those statistics.
+
+Steps:
+==>> fit_transform(x_train)
+1.Learns mean & std from train data only.
+2.Scales the train data.
+
+==>>transform(x_test)
+1.Uses the same mean & std from train.
+2.Scales test data in the same way.
+
+
+Why not fit on test?
+Because test should act like new unseen data.
+If you fit on test → you “leak” information from test into training → results won’t be fair (like cheating in exam).
+
+Rule of thumb:
+Fit only on train.
+Transform both train and test using train’s parameters.
