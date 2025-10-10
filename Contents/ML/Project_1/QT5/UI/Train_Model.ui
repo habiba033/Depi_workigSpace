@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TrainPage</class>
+ <widget class="QWidget" name="TrainPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>846</width>
+    <height>729</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===================================================================
+    Ultimate Purple Theme for PyQt5 by Gemini
+    -------------------------------------------------------------------
+    - This is a comprehensive stylesheet with explicit parameters.
+    - Properties like font, color, background, border, padding,
+      size, and alignment are detailed for each widget.
+   =================================================================== */
+
+/* === [1] Main Window &amp; Global Defaults === */
+QWidget {
+    /* Background and Font */
+    background-color: #F5F3FF; /* Sets the background for the entire window */
+    font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif; /* Primary font for the application */
+    color: #3D315B; /* Default text color */
+}
+
+/* === [2] Title Labels (Specific Styling by objectName) === */
+QLabel#label_title_train,
+QLabel#label_title_predict {
+    /* Font Styling */
+    font-family: 'Segoe UI Semibold', 'Arial';
+    font-size: 26px;
+    font-weight: 600; /* Boldness: 400=normal, 600=semibold, 700=bold */
+    font-style: normal;
+
+    /* Color */
+    color: #4C3B71; /* Dark, rich purple for high emphasis */
+    background-color: transparent; /* Ensure it has no background color */
+
+    /* Box Model */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none; /* No border */
+    border-bottom: 1px solid #D9D2E9; /* Subtle separator line */
+    margin: 5px;
+
+    /* Alignment (controlled via QSS) */
+    qproperty-alignment: 'AlignHCenter'; /* Qt-specific property for alignment */
+}
+
+
+/* === [3] General Labels (e.g., 'Dataset Path:', 'Total Rooms:') === */
+QLabel {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 500; /* Slightly bolder than normal */
+
+    /* Color */
+    color: #59516d; /* Softer purple-grey for readability */
+    background-color: transparent;
+
+    /* Box Model &amp; Sizing */
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 25px; /* Ensure labels don't get squished */
+}
+
+/* === [4] Input Fields (QLineEdit) === */
+QLineEdit {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 400; /* Normal weight for input text */
+    color: #333333; /* Dark text for high contrast */
+
+    /* Color and Background */
+    background-color: #FFFFFF; /* Bright white background */
+
+    /* Box Model &amp; Border */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D9D2E9; /* Light purple border */
+    border-radius: 8px; /* Defines how rounded the corners are */
+    padding: 8px 12px 8px 12px; /* Top, Right, Bottom, Left padding */
+
+    /* Sizing */
+    min-height: 25px; /* Minimum height for better clickability */
+}
+
+QLineEdit:focus {
+    /* Style when the user has clicked into the input box */
+    border-width: 2px;
+    border-color: #9D81D9; /* A more prominent purple to indicate focus */
+}
+
+
+/* === [5] Primary Buttons ('Train Model', 'Browse', 'Predict') === */
+QPushButton {
+    /* Font Styling */
+    font-size: 10pt;
+    font-weight: 700; /* Bold text */
+    color: #FFFFFF; /* High-contrast white text */
+
+    /* Color and Background */
+    background-color: #7E57C2; /* Main interactive purple */
+
+    /* Box Model &amp; Border */
+    border-style: none; /* No border for a modern, flat look */
+    border-radius: 8px;
+    padding: 10px 16px;
+
+    /* Sizing */
+    min-width: 80px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    /* Style when the mouse cursor is over the button */
+    background-color: #673AB7; /* Darker shade of purple */
+}
+
+QPushButton:pressed {
+    /* Style when the button is being clicked */
+    background-color: #512DA8; /* Even darker shade for click feedback */
+}
+
+
+/* === [6] Secondary Button ('OK') === */
+QPushButton#btn_ok {
+    /* Font Styling */
+    font-size: 13px;
+    font-weight: 600; /* Semibold, less prominent than primary buttons */
+    color: #673AB7; /* Purple text to match the theme */
+
+    /* Color and Background */
+    background-color: #E8E2F9; /* Light lavender, less emphasis */
+
+    /* Box Model &amp; Border */
+    border: 1px solid #C5B9E8; /* Subtle border */
+    border-radius: 6px; /* Slightly less rounded corners */
+    padding: 5px 15px; /* Less vertical padding */
+
+    /* Sizing */
+    min-width: 70px;
+    min-height: 20px;
+}
+
+QPushButton#btn_ok:hover {
+    background-color: #D9D2E9;
+    border-color: #B4A5DD;
+}
+
+QPushButton#btn_ok:pressed {
+    background-color: #C5B9E8;
+}
+
+/* === [7] Status &amp; Result Labels (Specific Styling) === */
+QLabel#label_status_train,
+QLabel#label_price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4C3B71;
+    qproperty-alignment: 'AlignHCenter';
+    padding: 5px;
+}
+
+</string>
+  </property>
+  <widget class="QLabel" name="label_title_train">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>70</y>
+     <width>611</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ===================================================================
+    Ultimate Purple Theme for PyQt5 by Gemini
+    -------------------------------------------------------------------
+    - This is a comprehensive stylesheet with explicit parameters.
+    - Properties like font, color, background, border, padding,
+      size, and alignment are detailed for each widget.
+   =================================================================== */
+
+/* === [1] Main Window &amp; Global Defaults === */
+QWidget {
+    /* Background and Font */
+    background-color: #F5F3FF; /* Sets the background for the entire window */
+    font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif; /* Primary font for the application */
+    color: #3D315B; /* Default text color */
+}
+
+/* === [2] Title Labels (Specific Styling by objectName) === */
+QLabel#label_title_train,
+QLabel#label_title_predict {
+    /* Font Styling */
+    font-family: 'Segoe UI Semibold', 'Arial';
+    font-size: 26px;
+    font-weight: 600; /* Boldness: 400=normal, 600=semibold, 700=bold */
+    font-style: normal;
+
+    /* Color */
+    color: #4C3B71; /* Dark, rich purple for high emphasis */
+    background-color: transparent; /* Ensure it has no background color */
+	background-color: rgba(249, 243, 255, 225);
+
+    /* Box Model */
+    padding-top: 20px;
+    padding-bottom: 5px;
+    border: none; /* No border */
+    border-bottom: 1px solid #D9D2E9; /* Subtle separator line */
+    margin: 5px;
+
+    /* Alignment (controlled via QSS) */
+    qproperty-alignment: 'AlignHCenter'; /* Qt-specific property for alignment */
+}
+
+
+/* === [3] General Labels (e.g., 'Dataset Path:', 'Total Rooms:') === */
+QLabel {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 500; /* Slightly bolder than normal */
+
+    /* Color */
+    color: #59516d; /* Softer purple-grey for readability */
+    background-color: transparent;
+
+    /* Box Model &amp; Sizing */
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 25px; /* Ensure labels don't get squished */
+}
+
+/* === [4] Input Fields (QLineEdit) === */
+QLineEdit {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 400; /* Normal weight for input text */
+    color: #333333; /* Dark text for high contrast */
+
+    /* Color and Background */
+    background-color: #FFFFFF; /* Bright white background */
+
+    /* Box Model &amp; Border */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D9D2E9; /* Light purple border */
+    border-radius: 8px; /* Defines how rounded the corners are */
+    padding: 8px 12px 8px 12px; /* Top, Right, Bottom, Left padding */
+
+    /* Sizing */
+    min-height: 25px; /* Minimum height for better clickability */
+}
+
+QLineEdit:focus {
+    /* Style when the user has clicked into the input box */
+    border-width: 2px;
+    border-color: #9D81D9; /* A more prominent purple to indicate focus */
+}
+
+
+/* === [5] Primary Buttons ('Train Model', 'Browse', 'Predict') === */
+QPushButton {
+    /* Font Styling */
+    font-size: 10pt;
+    font-weight: 700; /* Bold text */
+    color: #FFFFFF; /* High-contrast white text */
+
+    /* Color and Background */
+    background-color: #7E57C2; /* Main interactive purple */
+
+    /* Box Model &amp; Border */
+    border-style: none; /* No border for a modern, flat look */
+    border-radius: 8px;
+    padding: 10px 16px;
+
+    /* Sizing */
+    min-width: 80px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    /* Style when the mouse cursor is over the button */
+    background-color: #673AB7; /* Darker shade of purple */
+}
+
+QPushButton:pressed {
+    /* Style when the button is being clicked */
+    background-color: #512DA8; /* Even darker shade for click feedback */
+}
+
+
+/* === [6] Secondary Button ('OK') === */
+QPushButton#btn_ok {
+    /* Font Styling */
+    font-size: 13px;
+    font-weight: 600; /* Semibold, less prominent than primary buttons */
+    color: #673AB7; /* Purple text to match the theme */
+
+    /* Color and Background */
+    background-color: #E8E2F9; /* Light lavender, less emphasis */
+
+    /* Box Model &amp; Border */
+    border: 1px solid #C5B9E8; /* Subtle border */
+    border-radius: 6px; /* Slightly less rounded corners */
+    padding: 5px 15px; /* Less vertical padding */
+
+    /* Sizing */
+    min-width: 70px;
+    min-height: 20px;
+}
+
+QPushButton#btn_ok:hover {
+    background-color: #D9D2E9;
+    border-color: #B4A5DD;
+}
+
+QPushButton#btn_ok:pressed {
+    background-color: #C5B9E8;
+}
+
+/* === [7] Status &amp; Result Labels (Specific Styling) === */
+QLabel#label_status_train,
+QLabel#label_price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4C3B71;
+    qproperty-alignment: 'AlignHCenter';
+    padding: 5px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Train The Model</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_dataset_path_text">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>290</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ===================================================================
+    Ultimate Purple Theme for PyQt5 by Gemini
+    -------------------------------------------------------------------
+    - This is a comprehensive stylesheet with explicit parameters.
+    - Properties like font, color, background, border, padding,
+      size, and alignment are detailed for each widget.
+   =================================================================== */
+
+/* === [1] Main Window &amp; Global Defaults === */
+QWidget {
+    /* Background and Font */
+    background-color: #F5F3FF; /* Sets the background for the entire window */
+    font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif; /* Primary font for the application */
+    color: #3D315B; /* Default text color */
+}
+
+/* === [2] Title Labels (Specific Styling by objectName) === */
+QLabel#label_title_train,
+QLabel#label_title_predict {
+    /* Font Styling */
+    font-family: 'Segoe UI Semibold', 'Arial';
+    font-size: 26px;
+    font-weight: 600; /* Boldness: 400=normal, 600=semibold, 700=bold */
+    font-style: normal;
+
+    /* Color */
+    color: #4C3B71; /* Dark, rich purple for high emphasis */
+    background-color: transparent; /* Ensure it has no background color */
+
+    /* Box Model */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none; /* No border */
+    border-bottom: 1px solid #D9D2E9; /* Subtle separator line */
+    margin: 5px;
+
+    /* Alignment (controlled via QSS) */
+    qproperty-alignment: 'AlignHCenter'; /* Qt-specific property for alignment */
+}
+
+
+/* === [3] General Labels (e.g., 'Dataset Path:', 'Total Rooms:') === */
+QLabel {
+    /* Font Styling */
+    font-size: 18px;
+    font-weight: 500; /* Slightly bolder than normal */
+
+    /* Color */
+    color: #59516d; /* Softer purple-grey for readability */
+    background-color: transparent;
+
+    /* Box Model &amp; Sizing */
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 25px; /* Ensure labels don't get squished */
+}
+
+/* === [4] Input Fields (QLineEdit) === */
+QLineEdit {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 400; /* Normal weight for input text */
+    color: #333333; /* Dark text for high contrast */
+
+    /* Color and Background */
+    background-color: #FFFFFF; /* Bright white background */
+
+    /* Box Model &amp; Border */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D9D2E9; /* Light purple border */
+    border-radius: 8px; /* Defines how rounded the corners are */
+    padding: 8px 12px 8px 12px; /* Top, Right, Bottom, Left padding */
+
+    /* Sizing */
+    min-height: 25px; /* Minimum height for better clickability */
+}
+
+QLineEdit:focus {
+    /* Style when the user has clicked into the input box */
+    border-width: 2px;
+    border-color: #9D81D9; /* A more prominent purple to indicate focus */
+}
+
+
+/* === [5] Primary Buttons ('Train Model', 'Browse', 'Predict') === */
+QPushButton {
+    /* Font Styling */
+    font-size: 16px;
+    font-weight: 700; /* Bold text */
+    color: #FFFFFF; /* High-contrast white text */
+
+    /* Color and Background */
+    background-color: #7E57C2; /* Main interactive purple */
+
+    /* Box Model &amp; Border */
+    border-style: none; /* No border for a modern, flat look */
+    border-radius: 8px;
+    padding: 8px 12px;
+
+    /* Sizing */
+    min-width: 80px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    /* Style when the mouse cursor is over the button */
+    background-color: #673AB7; /* Darker shade of purple */
+}
+
+QPushButton:pressed {
+    /* Style when the button is being clicked */
+    background-color: #512DA8; /* Even darker shade for click feedback */
+}
+
+
+/* === [6] Secondary Button ('OK') === */
+QPushButton#btn_ok {
+    /* Font Styling */
+    font-size: 13px;
+    font-weight: 600; /* Semibold, less prominent than primary buttons */
+    color: #673AB7; /* Purple text to match the theme */
+
+    /* Color and Background */
+    background-color: #E8E2F9; /* Light lavender, less emphasis */
+
+    /* Box Model &amp; Border */
+    border: 1px solid #C5B9E8; /* Subtle border */
+    border-radius: 6px; /* Slightly less rounded corners */
+    padding: 5px 15px; /* Less vertical padding */
+
+    /* Sizing */
+    min-width: 70px;
+    min-height: 20px;
+}
+
+QPushButton#btn_ok:hover {
+    background-color: #D9D2E9;
+    border-color: #B4A5DD;
+}
+
+QPushButton#btn_ok:pressed {
+    background-color: #C5B9E8;
+}
+
+/* === [7] Status &amp; Result Labels (Specific Styling) === */
+QLabel#label_status_train,
+QLabel#label_price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4C3B71;
+    qproperty-alignment: 'AlignHCenter';
+    padding: 5px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Dataset Path : </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_status_train">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>520</y>
+     <width>431</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Status: Waiting for training...</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_dataset_path">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>290</y>
+     <width>381</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_browse">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>290</y>
+     <width>164</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ===================================================================
+    Ultimate Purple Theme for PyQt5 by Gemini
+    -------------------------------------------------------------------
+    - This is a comprehensive stylesheet with explicit parameters.
+    - Properties like font, color, background, border, padding,
+      size, and alignment are detailed for each widget.
+   =================================================================== */
+
+/* === [1] Main Window &amp; Global Defaults === */
+QWidget {
+    /* Background and Font */
+    background-color: #F5F3FF; /* Sets the background for the entire window */
+    font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif; /* Primary font for the application */
+    color: #3D315B; /* Default text color */
+}
+
+/* === [2] Title Labels (Specific Styling by objectName) === */
+QLabel#label_title_train,
+QLabel#label_title_predict {
+    /* Font Styling */
+    font-family: 'Segoe UI Semibold', 'Arial';
+    font-size: 26px;
+    font-weight: 600; /* Boldness: 400=normal, 600=semibold, 700=bold */
+    font-style: normal;
+
+    /* Color */
+    color: #4C3B71; /* Dark, rich purple for high emphasis */
+    background-color: transparent; /* Ensure it has no background color */
+
+    /* Box Model */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none; /* No border */
+    border-bottom: 1px solid #D9D2E9; /* Subtle separator line */
+    margin: 5px;
+
+    /* Alignment (controlled via QSS) */
+    qproperty-alignment: 'AlignHCenter'; /* Qt-specific property for alignment */
+}
+
+
+/* === [3] General Labels (e.g., 'Dataset Path:', 'Total Rooms:') === */
+QLabel {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 500; /* Slightly bolder than normal */
+
+    /* Color */
+    color: #59516d; /* Softer purple-grey for readability */
+    background-color: transparent;
+
+    /* Box Model &amp; Sizing */
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 25px; /* Ensure labels don't get squished */
+}
+
+/* === [4] Input Fields (QLineEdit) === */
+QLineEdit {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 400; /* Normal weight for input text */
+    color: #333333; /* Dark text for high contrast */
+
+    /* Color and Background */
+    background-color: #FFFFFF; /* Bright white background */
+
+    /* Box Model &amp; Border */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D9D2E9; /* Light purple border */
+    border-radius: 8px; /* Defines how rounded the corners are */
+    padding: 8px 12px 8px 12px; /* Top, Right, Bottom, Left padding */
+
+    /* Sizing */
+    min-height: 25px; /* Minimum height for better clickability */
+}
+
+QLineEdit:focus {
+    /* Style when the user has clicked into the input box */
+    border-width: 2px;
+    border-color: #9D81D9; /* A more prominent purple to indicate focus */
+}
+
+
+/* === [5] Primary Buttons ('Train Model', 'Browse', 'Predict') === */
+QPushButton {
+    /* Font Styling */
+    font-size: 10pt;
+    font-weight: 700; /* Bold text */
+    color: #FFFFFF; /* High-contrast white text */
+
+    /* Color and Background */
+    background-color: #7E57C2; /* Main interactive purple */
+
+    /* Box Model &amp; Border */
+    border-style: none; /* No border for a modern, flat look */
+    border-radius: 8px;
+    padding: 10px 16px;
+
+    /* Sizing */
+    min-width: 80px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    /* Style when the mouse cursor is over the button */
+    background-color: #673AB7; /* Darker shade of purple */
+}
+
+QPushButton:pressed {
+    /* Style when the button is being clicked */
+    background-color: #512DA8; /* Even darker shade for click feedback */
+}
+
+
+/* === [6] Secondary Button ('OK') === */
+QPushButton#btn_ok {
+    /* Font Styling */
+    font-size: 13px;
+    font-weight: 600; /* Semibold, less prominent than primary buttons */
+    color: #673AB7; /* Purple text to match the theme */
+
+    /* Color and Background */
+    background-color: #E8E2F9; /* Light lavender, less emphasis */
+
+    /* Box Model &amp; Border */
+    border: 1px solid #C5B9E8; /* Subtle border */
+    border-radius: 6px; /* Slightly less rounded corners */
+    padding: 5px 15px; /* Less vertical padding */
+
+    /* Sizing */
+    min-width: 70px;
+    min-height: 20px;
+}
+
+QPushButton#btn_ok:hover {
+    background-color: #D9D2E9;
+    border-color: #B4A5DD;
+}
+
+QPushButton#btn_ok:pressed {
+    background-color: #C5B9E8;
+}
+
+/* === [7] Status &amp; Result Labels (Specific Styling) === */
+QLabel#label_status_train,
+QLabel#label_price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4C3B71;
+    qproperty-alignment: 'AlignHCenter';
+    padding: 5px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Browse Dataset</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_train">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>420</y>
+     <width>391</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Train Model</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_ok">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>640</y>
+     <width>131</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ===================================================================
+    Ultimate Purple Theme for PyQt5 by Gemini
+    -------------------------------------------------------------------
+    - This is a comprehensive stylesheet with explicit parameters.
+    - Properties like font, color, background, border, padding,
+      size, and alignment are detailed for each widget.
+   =================================================================== */
+
+/* === [1] Main Window &amp; Global Defaults === */
+QWidget {
+    /* Background and Font */
+    background-color: #F5F3FF; /* Sets the background for the entire window */
+    font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif; /* Primary font for the application */
+    color: #3D315B; /* Default text color */
+}
+
+/* === [2] Title Labels (Specific Styling by objectName) === */
+QLabel#label_title_train,
+QLabel#label_title_predict {
+    /* Font Styling */
+    font-family: 'Segoe UI Semibold', 'Arial';
+    font-size: 26px;
+    font-weight: 600; /* Boldness: 400=normal, 600=semibold, 700=bold */
+    font-style: normal;
+
+    /* Color */
+    color: #4C3B71; /* Dark, rich purple for high emphasis */
+    background-color: transparent; /* Ensure it has no background color */
+
+    /* Box Model */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none; /* No border */
+    border-bottom: 1px solid #D9D2E9; /* Subtle separator line */
+    margin: 5px;
+
+    /* Alignment (controlled via QSS) */
+    qproperty-alignment: 'AlignHCenter'; /* Qt-specific property for alignment */
+}
+
+
+/* === [3] General Labels (e.g., 'Dataset Path:', 'Total Rooms:') === */
+QLabel {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 500; /* Slightly bolder than normal */
+
+    /* Color */
+    color: #59516d; /* Softer purple-grey for readability */
+    background-color: transparent;
+
+    /* Box Model &amp; Sizing */
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 25px; /* Ensure labels don't get squished */
+}
+
+/* === [4] Input Fields (QLineEdit) === */
+QLineEdit {
+    /* Font Styling */
+    font-size: 14px;
+    font-weight: 400; /* Normal weight for input text */
+    color: #333333; /* Dark text for high contrast */
+
+    /* Color and Background */
+    background-color: #FFFFFF; /* Bright white background */
+
+    /* Box Model &amp; Border */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D9D2E9; /* Light purple border */
+    border-radius: 8px; /* Defines how rounded the corners are */
+    padding: 8px 12px 8px 12px; /* Top, Right, Bottom, Left padding */
+
+    /* Sizing */
+    min-height: 25px; /* Minimum height for better clickability */
+}
+
+QLineEdit:focus {
+    /* Style when the user has clicked into the input box */
+    border-width: 2px;
+    border-color: #9D81D9; /* A more prominent purple to indicate focus */
+}
+
+
+/* === [5] Primary Buttons ('Train Model', 'Browse', 'Predict') === */
+QPushButton {
+    /* Font Styling */
+    font-size: 10pt;
+    font-weight: 700; /* Bold text */
+    color: #FFFFFF; /* High-contrast white text */
+
+    /* Color and Background */
+    background-color: #7E57C2; /* Main interactive purple */
+
+    /* Box Model &amp; Border */
+    border-style: none; /* No border for a modern, flat look */
+    border-radius: 8px;
+    padding: 10px 16px;
+
+    /* Sizing */
+    min-width: 80px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    /* Style when the mouse cursor is over the button */
+    background-color: #673AB7; /* Darker shade of purple */
+}
+
+QPushButton:pressed {
+    /* Style when the button is being clicked */
+    background-color: #512DA8; /* Even darker shade for click feedback */
+}
+
+
+/* === [6] Secondary Button ('OK') === */
+QPushButton#btn_ok {
+    /* Font Styling */
+    font-size: 13px;
+    font-weight: 600; /* Semibold, less prominent than primary buttons */
+    color: #673AB7; /* Purple text to match the theme */
+
+    /* Color and Background */
+    background-color: #E8E2F9; /* Light lavender, less emphasis */
+
+    /* Box Model &amp; Border */
+    border: 1px solid #C5B9E8; /* Subtle border */
+    border-radius: 6px; /* Slightly less rounded corners */
+    padding: 5px 15px; /* Less vertical padding */
+
+    /* Sizing */
+    min-width: 70px;
+    min-height: 20px;
+}
+
+QPushButton#btn_ok:hover {
+    background-color: #D9D2E9;
+    border-color: #B4A5DD;
+}
+
+QPushButton#btn_ok:pressed {
+    background-color: #C5B9E8;
+}
+
+/* === [7] Status &amp; Result Labels (Specific Styling) === */
+QLabel#label_status_train,
+QLabel#label_price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4C3B71;
+    qproperty-alignment: 'AlignHCenter';
+    padding: 5px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>CLOSE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bttn_predict_page">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>660</y>
+     <width>201</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Predict Page</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
