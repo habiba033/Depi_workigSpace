@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1124</width>
+    <height>839</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="toolTip">
+   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Finding Dondors&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="Finding_Dondors" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>10</y>
+     <width>1141</width>
+     <height>871</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* 🌙 General UI */
+QMainWindow {
+    background-color: #f0f4f8;
+    font-family: &quot;Inter&quot;, &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* 🌊 Sidebar */
+#sidebarFrame {
+    background-color: #1f2937;
+    border-radius: 15px 0 0 15px;
+    color: white;
+    min-width: 250px;
+}
+
+#lblLogo {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    padding: 20px;
+    border: none;
+}
+
+#lblFooter {
+    font-size: 11px;
+    color: #9ca3af;
+    padding: 10px;
+}
+
+/* 🌈 Navigation Buttons */
+QPushButton {
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    padding: 12px 24px;
+    border: none;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+QPushButton:hover {
+    background-color: #374151;
+    color: #38bdf8;
+}
+
+QPushButton:checked, QPushButton:focus {
+    background-color: #374151;
+    color: #38bdf8;
+    border-left: 3px solid #38bdf8;
+}
+
+/* 🧩 Main Content */
+#contentFrame {
+    background-color: #ffffff;
+    border-radius: 0 15px 15px 0;
+    padding: 25px;
+}
+
+/* 🏷️ Titles */
+QLabel#lblTitle {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1f2937;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+QLabel#lblDescription {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 20px;
+}
+
+/* 📊 Stat Cards */
+QFrame#cardBlue {
+    background-color: #3b82f6;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+}
+
+QFrame#cardGreen {
+    background-color: #22c55e;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+}
+
+QFrame#cardYellow {
+    background-color: #facc15;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+}
+
+QLabel#cardTitle {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+QLabel#cardSubtitle {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* ⚡ Quick Actions */
+QPushButton#btnQuick {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: white;
+}
+
+#btnPredict { background-color: #0ea5e9; }
+#btnVisual { background-color: #6366f1; }
+#btnTrain { background-color: #374151; }
+
+#btnPredict:hover { background-color: #0284c7; }
+#btnVisual:hover { background-color: #4f46e5; }
+#btnTrain:hover { background-color: #111827; }
+
+/* 🧮 Forms */
+QLineEdit, QComboBox, QSpinBox {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 6px;
+    background-color: #f9fafb;
+}
+
+QLineEdit:focus, QComboBox:focus {
+    border: 1px solid #38bdf8;
+    background-color: white;
+}
+
+/* 🧠 Result Gauge Placeholder */
+QFrame#gaugeFrame {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    background-color: #f9fafb;
+}
+
+/* 🧾 Visualization Section */
+QFrame#chartFrame {
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+}
+
+QLabel#chartTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+}
+</string>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>1091</width>
+      <height>781</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QFrame" name="frame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QFrame" name="sidebarFrame">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>381</width>
+          <height>801</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>270</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>381</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 🌙 SIDEBAR STYLE */
+
+#sidebarFrame {
+    background-color: #1f2937;     /* Dark gray */
+    border-radius: 15px 0 0 15px;
+    padding: 20px 10px;            /* Inner spacing */
+    color: white;
+}
+
+/* 🧠 Logo */
+#lblLogo {
+    font-family: &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+}
+
+/* 🧭 Navigation Buttons */
+#navFrame QPushButton {
+    background-color: transparent;
+    color: #e5e7eb;
+    text-align: left;
+    padding: 12px 20px;
+    font-family: &quot;Inter&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+}
+
+#navFrame QPushButton:hover {
+    background-color: #374151;
+    color: #38bdf8; /* Sky blue */
+}
+
+#navFrame QPushButton:checked,
+#navFrame QPushButton:focus {
+    background-color: #374151;
+    color: #38bdf8;
+    border-left: 3px solid #38bdf8;
+}
+
+/* 🪶 Footer */
+#lblFooter {
+    font-size: 11px;
+    color: #9ca3af;
+    padding: 15px;
+    font-family: &quot;Inter&quot;, sans-serif;
+}
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="lblLogo">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>30</y>
+           <width>321</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>📈 CharityML</string>
+         </property>
+        </widget>
+        <widget class="QFrame" name="navFrame">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>140</y>
+           <width>341</width>
+           <height>431</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QPushButton" name="btn_nav_home">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>🏠 Dashboard</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btn_nav_predict">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>🤖 Predict Income</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btn_nav_visual">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>240</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>📊 Visualize Insights</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btn_nav_train">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>350</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>⚙️ Train Model</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QLabel" name="lblFooter">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>710</y>
+           <width>201</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>“ML Engineer Nanodegree Project”</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="contentFrame">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>-10</y>
+          <width>731</width>
+          <height>801</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 🌤️ MAIN CONTENT AREA */
+#contentFrame {
+    background-color: #f9fafb; /* light gray */
+    border-radius: 0 15px 15px 0;
+}
+
+/* 🏷️ Title + Subtitle */
+#lblTitle {
+    font-family: &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #111827;
+    padding-bottom: 5px;
+}
+
+#lblSubtitle {
+    font-family:  &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 16px;
+    color: #4b5563;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+/* 📊 Stats Cards */
+#statsFrame {
+    background: transparent;
+    spacing: 15px;
+}
+
+#cardRecords, #cardAccuracy, #cardIncome {
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    min-width: 180px;
+    min-height: 120px;
+}
+
+#cardRecords {
+    background-color: #3B82F6; /* blue */
+}
+
+#cardAccuracy {
+    background-color: #22C55E; /* green */
+}
+
+#cardIncome {
+    background-color: #FACC15; /* yellow */
+    color: #111827;
+}
+
+/* Card Text */
+#cardRecords QLabel, #cardAccuracy QLabel, #cardIncome QLabel {
+    font-family: &quot;Poppins&quot;, sans-serif;
+}
+
+#cardRecords QLabel:first-child,
+#cardAccuracy QLabel:first-child,
+#cardIncome QLabel:first-child {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#cardRecords QLabel:last-child,
+#cardAccuracy QLabel:last-child,
+#cardIncome QLabel:last-child {
+    font-size: 13px;
+}
+
+/* ⚙️ Quick Actions */
+#quickActionsFrame {
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+#quickActionsFrame QLabel {
+    font-family: &quot;Poppins&quot;, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+#quickActionsFrame QPushButton {
+    border: none;
+    border-radius: 10px;
+    font-family: &quot;Inter&quot;, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 15px 25px;
+    color: white;
+    margin-right: 15px;
+}
+
+#btnQuickPredict {
+	
+	background-color: rgb(0, 170, 127);
+}
+
+#btnQuickVisual {
+    background-color: #6366F1;
+}
+
+#btnQuickTrain {
+    background-color: #111827;
+}
+
+#quickActionsFrame QPushButton:hover {
+    opacity: 0.85;
+}
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="lblTitle">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>631</width>
+           <height>131</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>🎯 Finding Donors – Income 
+ Predictor</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblSubtitle">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>170</y>
+           <width>521</width>
+           <height>111</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Welcome to the predictive modeling application for CharityML.
+ Use this tool to predict donor eligibility and analyze census data insights.</string>
+         </property>
+        </widget>
+        <widget class="QFrame" name="statsFrame">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>260</y>
+           <width>701</width>
+           <height>241</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* 📊 Stats Cards Container */
+#statsFrame {
+    background: transparent;
+    spacing: 15px; /* space between cards */
+}
+
+/* 🟦 Blue Card – Records */
+#cardRecords {
+    background-color: #3B82F6; /* blue */
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 180px;
+    min-height: 120px;
+    color: white;
+}
+
+/* 🟩 Green Card – Accuracy */
+#cardAccuracy {
+    background-color: #22C55E; /* green */
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 180px;
+    min-height: 120px;
+    color: white;
+}
+
+/* 🟨 Yellow Card – Income */
+#cardIncome {
+    background-color: #FACC15; /* yellow */
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 180px;
+    min-height: 120px;
+    color: #111827; /* dark text for contrast */
+}
+
+/* Card Labels – All cards */
+#cardRecords QLabel,
+#cardAccuracy QLabel,
+#cardIncome QLabel {
+    font-family: &quot;Poppins&quot;, sans-serif;
+}
+
+/* Top label (number or icon) */
+#cardRecords QLabel:first-child,
+#cardAccuracy QLabel:first-child,
+#cardIncome QLabel:first-child {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Bottom label (description) */
+#cardRecords QLabel:last-child,
+#cardAccuracy QLabel:last-child,
+#cardIncome QLabel:last-child {
+    font-size: 13px;
+    text-align: center;
+    word-wrap: break-word; /* ensures text fits inside card */
+}
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QWidget" name="cardRecords" native="true">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>220</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;“45,222 – Total Records Processed”&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="whatsThis">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;“45,222 – Total Records Processed”&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <widget class="QLabel" name="label_3">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>140</y>
+             <width>151</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+font-Size : 20px</string>
+           </property>
+           <property name="text">
+            <string>Total Records 
+Processed</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>60</x>
+             <y>10</y>
+             <width>81</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../../../../../../../../../Downloads/users-solid.svg</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_5">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>80</y>
+             <width>131</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+font-Size : 40px</string>
+           </property>
+           <property name="text">
+            <string>45,222</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QFrame" name="cardAccuracy">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>20</y>
+            <width>220</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_6">
+           <property name="geometry">
+            <rect>
+             <x>70</x>
+             <y>10</y>
+             <width>71</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../../../../../../../../../Downloads/medal-solid (4).svg</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_7">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>80</y>
+             <width>141</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+font-Size : 40px</string>
+           </property>
+           <property name="text">
+            <string>86.81%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_8">
+           <property name="geometry">
+            <rect>
+             <x>60</x>
+             <y>140</y>
+             <width>111</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+font-Size : 20px</string>
+           </property>
+           <property name="text">
+            <string>Optimized 
+Accuracy</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QFrame" name="cardIncome">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>20</y>
+            <width>220</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_9">
+           <property name="geometry">
+            <rect>
+             <x>60</x>
+             <y>10</y>
+             <width>71</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../../../../../../../../../Downloads/coins-solid.svg</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>80</y>
+             <width>141</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+font-Size : 40px</string>
+           </property>
+           <property name="text">
+            <string>$50K+</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_11">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>140</y>
+             <width>171</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+font-Size : 20px</string>
+           </property>
+           <property name="text">
+            <string>Target 
+Income Threshold</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="quickActionsFrame">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>510</y>
+           <width>641</width>
+           <height>251</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>141</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Quick Actions</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btnQuickPredict">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>130</y>
+            <width>191</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#btnQuickPredict {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #4A00E0, stop:1 #8E2DE2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
+    font-weight:700;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+QPushButton#btn_Quick_Predict:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #8E2DE2, stop:1 #4A00E0);
+    transform: scale(1.05);
+}
+
+ font-weight:900;
+
+</string>
+          </property>
+          <property name="text">
+           <string>Predict 
+Income</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btnQuickVisual">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>130</y>
+            <width>191</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size:20px;
+font-weight:500</string>
+          </property>
+          <property name="text">
+           <string>Visualize 
+Insights</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btnQuickTrain">
+          <property name="geometry">
+           <rect>
+            <x>460</x>
+            <y>130</y>
+            <width>181</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size:20px;
+font-weight:500</string>
+          </property>
+          <property name="text">
+           <string>Train 
+Model</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_13">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>160</y>
+            <width>41</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>../../../../../../../../../Downloads/eye-solid.svg</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_14">
+          <property name="geometry">
+           <rect>
+            <x>560</x>
+            <y>160</y>
+            <width>41</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>../../../../../../../../../Downloads/gears-solid.svg</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="predict_button_2">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>160</y>
+            <width>31</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>../../../../../../../../../Downloads/magnifying-glass-dollar-solid.svg</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

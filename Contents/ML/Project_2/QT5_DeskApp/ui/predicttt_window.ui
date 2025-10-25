@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1154</width>
+    <height>821</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="Finding_Dondors_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1141</width>
+     <height>871</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* 🌙 General UI */
+QMainWindow {
+    background-color: #f0f4f8;
+    font-family: &quot;Inter&quot;, &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* 🌊 Sidebar */
+#sidebarFrame {
+    background-color: #1f2937;
+    border-radius: 15px 0 0 15px;
+    color: white;
+    min-width: 250px;
+}
+
+#lblLogo {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    padding: 20px;
+    border: none;
+}
+
+#lblFooter {
+    font-size: 11px;
+    color: #9ca3af;
+    padding: 10px;
+}
+
+/* 🌈 Navigation Buttons */
+QPushButton {
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    padding: 12px 24px;
+    border: none;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+QPushButton:hover {
+    background-color: #374151;
+    color: #38bdf8;
+}
+
+QPushButton:checked, QPushButton:focus {
+    background-color: #374151;
+    color: #38bdf8;
+    border-left: 3px solid #38bdf8;
+}
+
+/* 🧩 Main Content */
+#contentFrame {
+    background-color: #ffffff;
+    border-radius: 0 15px 15px 0;
+    padding: 25px;
+}
+
+/* 🏷️ Titles */
+QLabel#lblTitle {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1f2937;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+QLabel#lblDescription {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 20px;
+}
+
+/* 📊 Stat Cards */
+QFrame#cardBlue {
+    background-color: #3b82f6;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+}
+
+QFrame#cardGreen {
+    background-color: #22c55e;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+}
+
+QFrame#cardYellow {
+    background-color: #facc15;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+}
+
+QLabel#cardTitle {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+QLabel#cardSubtitle {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* ⚡ Quick Actions */
+QPushButton#btnQuick {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: white;
+}
+
+#btnPredict { background-color: #0ea5e9; }
+#btnVisual { background-color: #6366f1; }
+#btnTrain { background-color: #374151; }
+
+#btnPredict:hover { background-color: #0284c7; }
+#btnVisual:hover { background-color: #4f46e5; }
+#btnTrain:hover { background-color: #111827; }
+
+/* 🧮 Forms */
+QLineEdit, QComboBox, QSpinBox {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 6px;
+    background-color: #f9fafb;
+}
+
+QLineEdit:focus, QComboBox:focus {
+    border: 1px solid #38bdf8;
+    background-color: white;
+}
+
+/* 🧠 Result Gauge Placeholder */
+QFrame#gaugeFrame {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    background-color: #f9fafb;
+}
+
+/* 🧾 Visualization Section */
+QFrame#chartFrame {
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+}
+
+QLabel#chartTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+}
+</string>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>1121</width>
+      <height>781</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QFrame" name="frame_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QFrame" name="predictFrame">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>0</y>
+          <width>761</width>
+          <height>801</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 🌙 General */
+QWidget {
+    background-color: #f8fafc;
+    font-family: &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+    color: #2c3e50;
+}
+
+/* 🧩 Input Frame */
+#frame_input {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e4e9f2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#frame_input QLabel {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
+}
+
+QLineEdit, QComboBox {
+    background: #ffffff;
+    border: 1px solid #dfe6ec;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 13px;
+    color: #2c3e50;
+}
+
+QLineEdit:focus, QComboBox:focus {
+    border: 1px solid #3498db;
+    box-shadow: 0 0 8px rgba(52,152,219,0.2);
+}
+
+/* 🚀 Predict Button */
+#btn_predict {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#btn_predict:hover {
+    background-color: #1976d2;
+}
+
+/* 📊 Result Frame */
+#frame_result {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e4e9f2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#frame_result QLabel {
+    color: #34495e;
+    font-weight: 600;
+}
+
+/* 🧭 Circle Confidence Indicator Placeholder */
+#circleFrame {
+    border: 6px solid #e6eef7;
+    border-top: 6px solid #00a8ff;
+    border-radius: 100px;
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+}
+
+/* 🧠 Result Label Styles */
+#label_confidence {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#label_result {
+    font-size: 16px;
+    font-weight: 700;
+    color: #16a085;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+#label_modelinfo {
+    font-size: 12px;
+    color: #95a5a6;
+    margin-top: 8px;
+}
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="lblTitle_2">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>10</y>
+           <width>631</width>
+           <height>131</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* 🌙 General */
+QWidget {
+    background-color: #f8fafc;
+    font-family: &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+    color: #2c3e50;
+}
+
+/* 🧩 Input Frame */
+#frame_input {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 200px;
+    border: 1px solid #e4e9f2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#frame_input QLabel {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
+}
+
+QLineEdit, QComboBox {
+    background: #ffffff;
+    border: 1px solid #dfe6ec;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 13px;
+    color: #2c3e50;
+}
+
+QLineEdit:focus, QComboBox:focus {
+    border: 1px solid #3498db;
+    box-shadow: 0 0 8px rgba(52,152,219,0.2);
+}
+
+/* 🚀 Predict Button */
+#btn_predict {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#btn_predict:hover {
+    background-color: #1976d2;
+}
+
+/* 📊 Result Frame */
+#frame_result {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e4e9f2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#frame_result QLabel {
+    color: #34495e;
+    font-weight: 600;
+}
+
+/* 🧭 Circle Confidence Indicator Placeholder */
+#circleFrame {
+    border: 6px solid #e6eef7;
+    border-top: 6px solid #00a8ff;
+    border-radius: 100px;
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+}
+
+/* 🧠 Result Label Styles */
+#label_confidence {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#label_result {
+    font-size: 16px;
+    font-weight: 700;
+    color: #16a085;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+#label_modelinfo {
+    font-size: 12px;
+    color: #95a5a6;
+    margin-top: 8px;
+}
+#lblTitle_2 {
+    font-family: &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #111827;
+    padding-bottom: 5px;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>💸 Predict Income</string>
+         </property>
+        </widget>
+        <widget class="QFrame" name="frame_input">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>160</y>
+           <width>321</width>
+           <height>591</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#inputFrame {
+    background-color: rgb(248, 248, 248);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #E5E7EB;
+}
+
+#inputFrame QLabel {
+    font-family: &quot;Inter&quot;, sans-serif;
+    font-size: 14px;
+    color: #374151;
+}
+
+QLineEdit, QComboBox, QSpinBox {
+    font-family: &quot;Inter&quot;, sans-serif;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid #D1D5DB;
+    background-color: white;
+}
+
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus {
+    border: 2px solid #3B82F6;
+    outline: none;
+}
+
+#btnRunPredict {
+    background-color: #0EA5E9;
+    color: white;
+    font-family: &quot;Inter&quot;, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-top: 15px;
+}
+
+#btnRunPredict:hover { background-color: #0284C7; cursor: pointer; }
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_2">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>40</y>
+            <width>201</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Donor Profile Input 
+(13 Features)</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_15">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>110</y>
+            <width>41</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Age</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_16">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>100</y>
+            <width>71</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Education 
+Level</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="education_input">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>140</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="workclass_input">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>250</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_17">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>219</y>
+            <width>71</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Workclass</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_18">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>220</y>
+            <width>91</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Hours/Week</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_19">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>350</y>
+            <width>81</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Capital Gain 
+(USD)</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_20">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>340</y>
+            <width>81</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Capital Loss 
+(USD)</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="predict_button">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>470</y>
+            <width>231</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#predict_button {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #4A00E0, stop:1 #8E2DE2);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 10px 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+QPushButton#predict_button:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #8E2DE2, stop:1 #4A00E0);
+    transform: scale(1.05);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>     Run Prediction</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="age_input">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>140</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="hours_input">
+          <property name="geometry">
+           <rect>
+            <x>172</x>
+            <y>250</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="capital_gain_input">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>400</y>
+            <width>141</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="capital_loss_input">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>400</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_result">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>160</y>
+           <width>381</width>
+           <height>591</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#resultFrame {
+    background-color: rgb(248, 248, 248);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #E5E7EB;
+}
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="lblResultTitle">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>10</y>
+            <width>171</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size : 20px</string>
+          </property>
+          <property name="text">
+           <string>Prediction Result</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_confidence">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>330</y>
+            <width>281</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>     Confidence Score</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_modelinfo">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>510</y>
+            <width>241</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Model: Optimized AdaBoost (F0.5: 0.7380)</string>
+          </property>
+         </widget>
+         <widget class="QFrame" name="result_frame">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>60</y>
+            <width>261</width>
+            <height>251</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame#result_frame {
+	background-color: rgb(0, 77, 113);
+    border-radius: 120px; /* نصف حجم الـ frame */
+    border: 3px solid #6a11cb;
+}
+
+QLabel#result_label {
+    background: transparent;
+    color: white;
+    font-size: 18pt; /* قلل الحجم لو النص طويل */
+    font-weight: bold;
+    qproperty-alignment: AlignCenter; /* بدون علامات اقتباس */
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="result_label">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>30</y>
+             <width>221</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;
+             color: white;
+                font-size: 12px;
+                font-weight: bold;
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QLabel" name="status_label">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>410</y>
+            <width>361</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="sidebarFrame_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-20</y>
+          <width>381</width>
+          <height>801</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>270</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>381</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 🌙 SIDEBAR STYLE */
+
+#sidebarFrame_2 {
+    background-color: #1f2937;     /* Dark gray */
+    border-radius: 15px 0 0 15px;
+    padding: 20px 10px;            /* Inner spacing */
+    color: white;
+}
+
+/* 🧠 Logo */
+#lblLogo_2 {
+    font-family: &quot;Poppins&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+}
+
+/* 🧭 Navigation Buttons */
+#navFrame_2 QPushButton{
+    background-color: transparent;
+    color: #e5e7eb;
+    text-align: left;
+    padding: 12px 20px;
+    font-family: &quot;Inter&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+}
+
+#navFrame_2 QPushButton:hover {
+    background-color: #374151;
+    color: #38bdf8; /* Sky blue */
+}
+
+#navFrame_2 QPushButton:checked,
+#navFrame_2 QPushButton:focus {
+    background-color: #374151;
+    color: #38bdf8;
+    border-left: 3px solid #38bdf8;
+}
+
+/* 🪶 Footer */
+#lblFooter_2 {
+    font-size: 11px;
+    color: #9ca3af;
+    padding: 15px;
+    font-family: &quot;Inter&quot;, sans-serif;
+}
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="lblLogo_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>30</y>
+           <width>321</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>📈 CharityML</string>
+         </property>
+        </widget>
+        <widget class="QFrame" name="navFrame_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>140</y>
+           <width>341</width>
+           <height>431</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QPushButton" name="btn_nav_home_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>🏠 Dashboard</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btn_nav_predict_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>🤖 Predict Income</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btn_nav_visual_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>240</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>📊 Visualize Insights</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btn_nav_train_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>350</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>⚙️ Train Model</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QLabel" name="lblFooter_2">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>710</y>
+           <width>201</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>“ML Engineer Nanodegree Project”</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="backToMain">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>720</y>
+           <width>161</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size : 20px;
+font-weight:900;
+</string>
+         </property>
+         <property name="text">
+          <string>Exit</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
